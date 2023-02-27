@@ -51,19 +51,20 @@
                         <li class="nav-item">
                             <a href="{{ 'kategori' }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Kategori</p>
+                                <p>KATEGORI</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/advanced.html') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>Article</p>
+                            <a href="{{ 'article' }}" class="nav-link">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                
+                                <p>ARTICLE</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ asset('AdminLTE/pages/forms/editors.html') }}" class="nav-link">
                                 <i class="nav-icon fas fa-magic"></i>
-                                <p>Pages</p>
+                                <p>PAGES</p>
                             </a>
                         </li>
                         <li class="nav-item">
