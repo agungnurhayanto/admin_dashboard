@@ -1,78 +1,81 @@
 @extends('layouts.main')
-@section('kategori')
-<div class="content-wrapper">
-	<section class="content-header">
-		<h1>
-			Artikel
-			<small>Manajemen Artikel</small>
-		</h1>
-	</section>
+@section('article')
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Artikel
+                <small>Manajemen Artikel</small>
+            </h1>
+        </section>
 
-	<section class="content">
+        <section class="content">
 
-		<div class="row">
-			<div class="col-lg-12">
-				
-				<a href="#" class="btn btn-sm btn-primary">Buat artikel baru</a>
+            <div class="row">
+                <div class="col-lg-12">
 
-				<br/>
-				<br/>
+                    <a href="#" class="btn btn-sm btn-primary">Buat artikel baru</a>
 
-				<div class="box box-primary">
-					<div class="box-header">
-						<h3 class="box-title">Artikel</h3>
-					</div>
-					<div class="box-body">
+                    <br />
+                    <br />
 
-						<div class="table-responsive">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th width="1%">NO</th>
-										<th>Tanggal</th>
-										<th>Artikel</th>
-										<th>Author</th>
-										<th>Kategori</th>
-										<th width="10%">Gambar</th>
-										<th>Status</th>
-										<th width="15%">OPSI</th>
-									</tr>
-								</thead>
-								<tbody>
-								
-										<tr>
-											<td>#</td>
-											<td>#</td>
-											<td>#</td>
-											<td>#</td>
-											<td>#</td>
-											<td><img width="100%" class="img-responsive" src="#"></td>
-											<td>
-											
-											</td>
-											<td>
-												<a href="#" class="btn btn-success btn-sm"> <i class="fa fa-eye"></i></a>
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Artikel</h3>
+                        </div>
+                        <div class="box-body">
 
-												<a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i> </a>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th width="1%">NO</th>
+                                            <th>Tanggal</th>
+                                            <th>Artikel</th>
+                                            <th>Author</th>
+                                            <th>Kategori</th>
+                                            <th width="10%">Gambar</th>
+                                            <th>Status</th>
+                                            <th width="15%">OPSI</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-												<a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> </a>
-													
-											
-											</td>
-										</tr>
-								</tbody>
-							</table>
-						</div>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>#</td>
+                                            <td>#</td>
+                                            <td>#</td>
+                                            <td>#</td>
+                                            <td><img width="100%" class="img-responsive" src="#"></td>
+                                            <td>
 
-					</div>
-				</div>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-success btn-sm"> <i
+                                                        class="fa fa-eye"></i></a>
 
-			</div>
-		</div>
+                                                <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i>
+                                                </a>
 
-	</section>
+                                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
+                                                </a>
 
-</div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
 @endsection
 
 @section('title', 'Web Company Profile')

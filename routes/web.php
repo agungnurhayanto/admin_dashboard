@@ -26,13 +26,29 @@ Route::get('dashboard/login', function(){
 });
 
 Route::get('kategori', function(){
-    return view('kategori');
+    return view('dashboard/kategori');
 });
 
 Route::get('article', function(){
-    return view('article');
+    return view('dashboard/article');
 });
 
 Route::get('pages', function(){
-    return view('pages');
+    return view('dashboard/pages');
+});
+
+Route::get('pengguna', function(){
+    return view('dashboard/pengguna');
+});
+
+Route::get('pengaturan', function(){
+    return view('dashboard/pengaturan');
+});
+
+Route::get('profil', function(){
+    return view('dashboard/profil');
+});
+
+Route::get('ganti_password', function(){
+    return view('dashboard/ganti_password');
 });

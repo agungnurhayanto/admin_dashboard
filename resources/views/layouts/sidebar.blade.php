@@ -23,7 +23,7 @@
         <!-- SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                <input class="form-control form-control-sideba2r" type="search" placeholder="Search"
                     aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
@@ -57,7 +57,7 @@
                         <li class="nav-item">
                             <a href="{{ 'article' }}" class="nav-link">
                                 <i class="nav-icon fas fa-newspaper"></i>
-                                
+
                                 <p>ARTICLE</p>
                             </a>
                         </li>
@@ -68,31 +68,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/validation.html') }}" class="nav-link">
+                            <a href="{{ 'pengguna' }}" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>PENGGUNA & HAK AKSES</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/validation.html') }}" class="nav-link">
+                            <a href="{{ 'pengaturan' }}" class="nav-link">
                                 <i class="nav-icon fas fa-marker"></i>
                                 <p>PENGATURAN WEBSITE</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/validation.html') }}" class="nav-link">
+                            <a href="{{ asset('profil') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>PROFIL</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/validation.html') }}" class="nav-link">
+                            <a href="{{ asset('ganti_password') }}" class="nav-link">
                                 <i class="nav-icon fas fa-lock"></i>
                                 <p>GANTI PASSWORD</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/validation.html') }}" class="nav-link">
+                            <a href="{{ asset('#') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>KELUAR</p>
                             </a>

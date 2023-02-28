@@ -1,10 +1,12 @@
 @include('layouts.header')
 @include('layouts.navbar')
 @include('layouts.sidebar')
-<main class="py-4">
-    @yield('dashboard')
-</main>
-<main class="py-2">
-    @yield('kategori')
-</main>
+@yield('dashboard')
+@yield('kategori')
+@yield('pages')
+@yield('article')
+@yield('pengguna')
+@yield('pengaturan')
+@yield('profil')
+@yield('ganti_password')
 @include('layouts.footer')
