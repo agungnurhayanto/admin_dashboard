@@ -28,3 +28,11 @@ Route::get('dashboard/login', function(){
 Route::get('kategori', function(){
     return view('kategori');
 });
+
+Route::get('article', function(){
+    return view('article');
+});
+
+Route::get('pages', function(){
+    return view('pages');
+});

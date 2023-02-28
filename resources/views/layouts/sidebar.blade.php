@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('AdminLTE/pages/forms/editors.html') }}" class="nav-link">
+                            <a href="{{ 'pages' }}" class="nav-link">
                                 <i class="nav-icon fas fa-magic"></i>
                                 <p>PAGES</p>
                             </a>
