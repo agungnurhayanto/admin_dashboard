@@ -16,15 +16,10 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
-
                         </ol>
-
-
                         <a href="#" class="btn btn-sm btn-primary">Buat Kategori baru</a>
-
                         <br />
                         <br />
-
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Kategori</h3>
@@ -40,38 +35,41 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-sm"> <i
-                                                        class="fa fa-pencil"></i> </a>
-                                                <a href="#" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($kategori as $k)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $k->kategori_nama }}</td>
+                                                <td>{{ $k->kategori_slug }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning btn-sm"> <i
+                                                            class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger btn-sm"> <i
+                                                            class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>
-
-
                             </div>
-
-
 
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <div class="row text-center">
+                {{ $kategori->links() }}
+            </div>
             <!-- Main content -->
-
         </div>
-
     </div>
+
 @endsection
 
 @section('title', 'Web Company Profile')

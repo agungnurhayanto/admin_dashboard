@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,7 @@ Route::get('dashboard/login', function(){
     return view('login');
 });
 
-Route::get('kategori', function(){
-    return view('dashboard/kategori');
-});
+Route::get('kategori', [CategoryController::class, 'index']);
 
 Route::get('article', function(){
     return view('dashboard/article');
