@@ -1,6 +1,6 @@
  <!-- /.content-wrapper -->
  <footer class="main-footer">
-     <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Agung Nurhayanto</a>.</strong>
+     <strong>Copyright &copy; 2023 <a href="#">Agung Nurhayanto</a>.</strong>
      All rights reserved.
      <div class="float-right d-none d-sm-inline-block">
          <b>Version</b> 1.0.0
@@ -46,9 +46,15 @@
  <!-- AdminLTE App -->
  <script src="{{ asset('AdminLTE/dist/js/adminlte.js') }}"></script>
  <!-- AdminLTE for demo purposes -->
- <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>
+ {{--   <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>  --}}
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="{{ asset('AdminLTE/dist/js/pages/dashboard.js') }}"></script>
+
+ <script>
+     setTimeout(function() {
+         $('.alert').fadeOut('slow');
+     }, 5000);
+ </script>
  </body>
 
  </html>

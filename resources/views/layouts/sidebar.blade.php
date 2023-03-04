@@ -6,7 +6,6 @@
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Admin Dashboard</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -19,7 +18,6 @@
                 <a href="#" class="d-block">Agung Nurhayanto</a>
             </div>
         </div>
-
         <!-- SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
@@ -32,7 +30,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -49,44 +46,44 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ 'kategori' }}" class="nav-link">
+                            <a href="{{ '/kategori' }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>KATEGORI</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ 'article' }}" class="nav-link">
+                            <a href="{{ '/article' }}" class="nav-link">
                                 <i class="nav-icon fas fa-newspaper"></i>
 
                                 <p>ARTICLE</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ 'pages' }}" class="nav-link">
+                            <a href="{{ '/pages' }}" class="nav-link">
                                 <i class="nav-icon fas fa-magic"></i>
                                 <p>PAGES</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ 'pengguna' }}" class="nav-link">
+                            <a href="{{ '/pengguna' }}" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>PENGGUNA & HAK AKSES</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ 'pengaturan' }}" class="nav-link">
+                            <a href="{{ '/pengaturan' }}" class="nav-link">
                                 <i class="nav-icon fas fa-marker"></i>
                                 <p>PENGATURAN WEBSITE</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('profil') }}" class="nav-link">
+                            <a href="{{ asset('/profil') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>PROFIL</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('ganti_password') }}" class="nav-link">
+                            <a href="{{ asset('/ganti_password') }}" class="nav-link">
                                 <i class="nav-icon fas fa-lock"></i>
                                 <p>GANTI PASSWORD</p>
                             </a>
@@ -99,8 +96,6 @@
                         </li>
                     </ul>
                 </li>
-
-
         </nav>
         <!-- /.sidebar-menu -->
     </div>

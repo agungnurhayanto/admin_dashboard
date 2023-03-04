@@ -22,11 +22,15 @@ Route::get('/dashboard', function(){
     return view('dashboard_utama');
 });
 
-Route::get('dashboard/login', function(){
+Route::get('/dashboard/login', function(){
     return view('login');
 });
 
-Route::get('kategori', [CategoryController::class, 'index']);
+Route::get('/kategori', [CategoryController::class, 'index']);
+Route::get('/kategori/hapus/{id}',[CategoryController::class, 'kategori_hapus']);
+Route::get('/kategori/edit/{id}',[CategoryController::class, 'kategori_edit']);
+Route::put('/kategori/update/{id}',[CategoryController::class, 'kategori_update']);
+
 
 Route::get('article', function(){
     return view('dashboard/article');
