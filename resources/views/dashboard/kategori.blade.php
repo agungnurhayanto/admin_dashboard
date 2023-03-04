@@ -16,6 +16,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="box-title">Kategori</h3>
+
                         </div>
                         <div class="card-body">
                             <div class="box box-primary">
@@ -59,6 +60,11 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        @if ($kategori->hasPages())
+                                            <div class="card-footer">
+                                                {{ $kategori->links() }}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

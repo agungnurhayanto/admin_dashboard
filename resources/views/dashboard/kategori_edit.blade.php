@@ -32,7 +32,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label>Nama Kategori</label>
-                                                    <input type="text" name="kategori" class="form-control"
+                                                    <input type="text" name="kategori_nama" class="form-control"
                                                         value="{{ $kategori->kategori_nama }}">
                                                     @if ($errors->has('kategori'))
                                                         <span class="text-danger">
