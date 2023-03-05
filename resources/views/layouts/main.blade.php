@@ -10,3 +10,4 @@
 @yield('profil')
 @yield('ganti_password')
 @include('layouts.footer')
+@include('modal.category_modal')

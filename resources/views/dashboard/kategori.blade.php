@@ -10,7 +10,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="#" class="btn btn-sm btn-primary">Buat artikel baru</a>
+                    <button type="button" class="btn btn-success float-left mb-1" data-toggle="modal" data-target="#modalTambahCategory">Tambah Category</button>
                     <br />
                     <br />
                     <div class="card">
@@ -74,6 +74,9 @@
     </div>
     </div>
     </div>
-@endsection
 
+    
+@endsection
 @section('title', 'Web Company Profile')
+
+

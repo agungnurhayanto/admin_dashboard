@@ -18,40 +18,42 @@ use App\Http\Controllers\CategoryController;
     return view('dashboard');
 }); */
 
-Route::get('/dashboard', function(){
+Route::get('/dashboard', function () {
     return view('dashboard_utama');
 });
 
-Route::get('/dashboard/login', function(){
+Route::get('/dashboard/login', function () {
     return view('login');
 });
 
 Route::get('/kategori', [CategoryController::class, 'index']);
-Route::get('/kategori/hapus/{id}',[CategoryController::class, 'kategori_hapus']);
-Route::get('/kategori/edit/{id}',[CategoryController::class, 'kategori_edit']);
-Route::put('/kategori/update/{id}',[CategoryController::class, 'kategori_update']);
+Route::get('/kategori/hapus/{id}', [CategoryController::class, 'kategori_hapus']);
+Route::get('/kategori/edit/{id}', [CategoryController::class, 'kategori_edit']);
+Route::put('/kategori/update/{id}', [CategoryController::class, 'kategori_update']);
+Route::get('/kategori/create', [CategoryController::class, 'create']);
+Route::post('/kategori/store', [CategoryController::class, 'store']);
 
 
-Route::get('article', function(){
+Route::get('article', function () {
     return view('dashboard/article');
 });
 
-Route::get('pages', function(){
+Route::get('pages', function () {
     return view('dashboard/pages');
 });
 
-Route::get('pengguna', function(){
+Route::get('pengguna', function () {
     return view('dashboard/pengguna');
 });
 
-Route::get('pengaturan', function(){
+Route::get('pengaturan', function () {
     return view('dashboard/pengaturan');
 });
 
-Route::get('profil', function(){
+Route::get('profil', function () {
     return view('dashboard/profil');
 });
 
-Route::get('ganti_password', function(){
+Route::get('ganti_password', function () {
     return view('dashboard/ganti_password');
 });

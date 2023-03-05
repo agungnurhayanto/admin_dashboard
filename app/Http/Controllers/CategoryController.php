@@ -6,6 +6,7 @@ use Illuminate\Pagination\Paginator;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -27,7 +28,27 @@ class CategoryController extends Controller
         return view('dashboard.kategori_edit',['kategori' => $kategori]);
     }
 
-     public function kategori_update($id, Request $data)
+    public function create(){
+        return view('dashboard.kategori_create');
+    }
+
+    public function store(Request $request){
+
+        $request->validate([
+            'kategori_nama' => 'required|min:2',
+        ]);
+
+        Category::create([
+            'kategori_nama' => $request->kategori_nama,
+            'kategori_id' => 1
+        ]);
+
+        return redirect('kategori')->with("sukses","Kategori berhasil Di tambahkan");
+    }
+
+
+
+    public function kategori_update($id, Request $data)
 
     {
     //form validasi
@@ -42,5 +63,5 @@ class CategoryController extends Controller
         $kategori->save();
 
         return redirect('/kategori')->with("sukses","Kategori berhasil diubah");
-        }
+   }
 }
