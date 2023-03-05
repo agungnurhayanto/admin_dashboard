@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalTambahCategory" tabindex="-1" aria-labelledby="modalTambahBarang" aria-hidden="true">
+<div class="modal fade" id="modalTambahCategory" tabindex="-1" aria-labelledby="modalTambahCategory" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@
                         <label for="">Nama Category</label>
                         <input type="text" class="form-control" id="kategori_nama" name="kategori_nama"
                             aria-describedby="emailHelp">
-                            @if ($errors->has('kategori'))
+                        @if ($errors->has('kategori'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('kategori') }}</strong>
                             </span>

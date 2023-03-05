@@ -10,7 +10,8 @@
         <section class="content">
             <div class="row">
                 <div class="col-lg-12">
-                    <button type="button" class="btn btn-success float-left mb-1" data-toggle="modal" data-target="#modalTambahCategory">Tambah Category</button>
+                    <button type="button" class="btn btn-warning float-left mb-1" data-toggle="modal"
+                        data-target="#modalTambahCategory">Tambah Category</button>
                     <br />
                     <br />
                     <div class="card">
@@ -48,8 +49,9 @@
                                                         <td>{{ $k->kategori_slug }}</td>
 
                                                         <td>
-                                                            <a href="{{ 'kategori/edit/' . $k->id }}"
-                                                                class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i>
+                                                            <a href="#" class="btn btn-warning btn-sm"
+                                                                data-toggle="modal" data-target="#edit{{ $k->id }}">
+                                                                <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="{{ 'kategori/hapus/' . $k->id }}"
                                                                 class="btn btn-danger btn-sm">
@@ -75,8 +77,6 @@
     </div>
     </div>
 
-    
+
 @endsection
 @section('title', 'Web Company Profile')
-
-

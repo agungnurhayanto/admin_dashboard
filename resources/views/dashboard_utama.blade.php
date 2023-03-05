@@ -97,3 +97,4 @@
         <!-- /.content -->
     </div>
 @endsection
+@include('modal.category_modal_edit')
