@@ -1,5 +1,5 @@
 <div class="modal fade" id="modalTambahCategory" tabindex="-1" aria-labelledby="modalTambahCategory" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog text-center">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Tambah Category</h5>

@@ -10,8 +10,8 @@
         <section class="content">
             <div class="row">
                 <div class="col-lg-12">
-                    <button type="button" class="btn btn-warning float-left mb-1" data-toggle="modal"
-                        data-target="#modalTambahCategory">Tambah Category</button>
+                    <button type="button" class="btn btn-success float-left mb-1" data-toggle="modal"
+                        data-target="#modalTambahCategory">Buat Category Baru</button>
                     <br />
                     <br />
                     <div class="card">
@@ -25,8 +25,10 @@
                                     @if (Session::has('sukses'))
                                         <div class="alert alert-success">
                                             {{ Session::get('sukses') }}
+
                                         </div>
                                     @endif
+
 
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
@@ -53,8 +55,9 @@
                                                                 data-toggle="modal" data-target="#edit{{ $k->id }}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href="{{ 'kategori/hapus/' . $k->id }}"
-                                                                class="btn btn-danger btn-sm">
+                                                            <a href="#" class="btn btn-danger btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#delete{{ $k->id }}">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>
                                                         </td>
@@ -76,7 +79,8 @@
     </div>
     </div>
     </div>
-
-
+    @include('modal.category_modal_tambah')
+    @include('modal.category_modal_edit')
+    @include('modal.category_modal_hapus')
 @endsection
 @section('title', 'Web Company Profile')

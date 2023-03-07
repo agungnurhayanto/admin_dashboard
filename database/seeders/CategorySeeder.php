@@ -18,7 +18,6 @@ class CategorySeeder extends Seeder
         $faker = Faker::create('id_ID');
         for($i = 1; $i <=50; $i++){
             DB::table('category')->insert([
-                'kategori_id' => $faker->numberBetween(1,10),
                 'kategori_nama' => $faker->name,
                 'kategori_slug' => $faker-> sentence
             ]);
