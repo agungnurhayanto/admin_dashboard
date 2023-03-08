@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Validator;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -35,24 +36,31 @@ class CategoryController extends Controller
 
     public function store(Request $request){
 
+
+    try {
         $request->validate([
             'kategori_nama' => 'required|min:2|unique:category',
-
-         ]);
+        ]);
 
         Category::create([
             'kategori_nama' => $request->kategori_nama,
             'kategori_slug' => Str::slug ($request->input('kategori_nama'))
         ]);
 
-        return redirect('kategori')->with("sukses","Kategori berhasil Di tambahkan");
+        return redirect('kategori')->with("success","Kategori berhasil Di tambahkan");
+    } catch (\Exception $e) {
+        return redirect('kategori')->with("error","".$e->getMessage());
+}
+
     }
 
     public function kategori_update($id, Request $data)
     {
     //form validasi
+
+    try {
         $data->validate([
-        'kategori_nama' => 'required',
+         'kategori_nama' => 'required|min:2|unique:category',
         ]);
 
         $nama_kategori = $data->kategori_nama;
@@ -63,5 +71,8 @@ class CategoryController extends Controller
         $kategori->save();
 
         return redirect('/kategori')->with("sukses","Kategori berhasil diubah");
+         } catch (\Exception $e) {
+        return redirect('kategori')->with("error","Nama Kategori tidak boleh sama: ".$e->getMessage());
    }
+}
 }

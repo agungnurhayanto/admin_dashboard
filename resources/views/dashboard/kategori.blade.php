@@ -16,15 +16,21 @@
                     <br />
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="box-title">Kategori</h3>
+                            <h3 class="box-title">Kategori Article</h3>
 
                         </div>
                         <div class="card-body">
                             <div class="box box-primary">
                                 <div class="box-body">
-                                    @if (Session::has('sukses'))
+                                    @if (Session::has('success'))
                                         <div class="alert alert-success">
-                                            {{ Session::get('sukses') }}
+                                            {{ Session::get('success') }}
+
+                                        </div>
+                                    @endif
+                                    @if (Session::has('error'))
+                                        <div class="alert alert-danger">
+                                            {{ Session::get('error') }}
 
                                         </div>
                                     @endif
