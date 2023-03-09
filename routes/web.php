@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -34,9 +35,8 @@ Route::get('/kategori/create', [CategoryController::class, 'create']);
 Route::post('/kategori/store', [CategoryController::class, 'store']);
 
 
-Route::get('article', function () {
-    return view('dashboard/article');
-});
+Route::get('/article', [ArtikelController::class, 'index']);
+
 
 Route::get('pages', function () {
     return view('dashboard/pages');

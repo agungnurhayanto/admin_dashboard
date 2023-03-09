@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,8 +19,8 @@ class CategorySeeder extends Seeder
         $faker = Faker::create('id_ID');
         for($i = 1; $i <=50; $i++){
             DB::table('category')->insert([
-                'kategori_nama' => $faker->name,
-                'kategori_slug' => $faker-> sentence
+                'kategori_nama' => $faker->name,'kategori_slug' => Str::slug($faker->name)
+               
             ]);
         }
     }

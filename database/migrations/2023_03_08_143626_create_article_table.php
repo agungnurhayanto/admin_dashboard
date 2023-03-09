@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('artikel', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('artikel_tanggal')->nullable();
             $table->string('artikel_judul')->nullable();
             $table->string('artikel_slug')->nullable();
             $table->longText('artikel_konten')->nullable();

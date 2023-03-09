@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\ArtikelSeeder;
 use Database\Seeders\CategorySeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(CategorySeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ArtikelSeeder::class);
     }
 }
