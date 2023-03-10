@@ -36,6 +36,7 @@ Route::post('/kategori/store', [CategoryController::class, 'store']);
 
 
 Route::get('/article', [ArtikelController::class, 'index']);
+Route::post('/article/store', [ArtikelController::class, 'store']);
 
 
 Route::get('pages', function () {

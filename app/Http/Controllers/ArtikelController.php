@@ -16,4 +16,5 @@ class ArtikelController extends Controller
         $artikel = Artikel::latest()->paginate(5);
         return view('dashboard.article', ['artikel' => $artikel]);
     }
+
 }
