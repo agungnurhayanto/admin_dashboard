@@ -1,4 +1,3 @@
- @dd('artikel');
  <div class="modal fade" id="modalTambahArtikel" tabindex="-1" aria-labelledby="modalTambahArtikel" aria-hidden="true">
      <div class="modal-dialog modal-lg">
          <div class="modal-content">
@@ -53,8 +52,12 @@
                                  <br />
                                  <div class="form-group">
                                      <label>Gambar Sampul</label>
+                                     <input type="file" name="artikel_sampul">
+                                     @if (isset($gambar_error))
+                                         {{ $gambar_error }}
+                                     @endif
 
-                                     <input type="file" name="sampul">
+                                     {{ $errors->first('sampul') }}
 
                                  </div>
                                  <br />

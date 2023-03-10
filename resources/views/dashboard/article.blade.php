@@ -54,16 +54,29 @@
                                                 @foreach ($artikel as $a)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $a->artikel_tanggal }}</td>
-                                                        <td>{{ $a->artikel_judul }}</td>
+                                                        <td>{{ date('d/m/Y H:i', strtotime($a->artikel_tanggal)) }}</td>
+                                                        <td>
+                                                            {{ $a->artikel_judul }}
+                                                            <br />
+                                                            <small class="text-muted">
+                                                                {{ url('') . '/' . $a->artikel_slug }}
+                                                            </small>
+                                                        </td>
                                                         <td>{{ $a->artikel_author }}</td>
                                                         <td>{{ $a->artikel_kategori }}</td>
-                                                        <td>{{ $a->artikel_sampul }}</td>
-                                                        <td>{{ $a->artikel_status }}</td>
-                                                        <td><img width="100%" class="img-responsive" src="#"></td>
-                                                        <td>
-
+                                                        <td><img width="100%" class="img-responsive"
+                                                                src="{{ url('') . '/gambar/artikel/' . $a->artikel_sampul }}">
                                                         </td>
+
+                                                        <td>
+                                                            @if ($a->artikel_status == 'publish')
+                                                                <span class='badge bg-success'>Publish</span>
+                                                            @else
+                                                                <span class='badge bg-danger'>Draft</span>
+                                                            @endif
+                                                        </td>
+
+
                                                         <td>
                                                             <a href="#" class="btn btn-success btn-sm"> <i
                                                                     class="fa fa-eye"></i></a>
