@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $kategori = Category::find($id)->delete();
 
         return redirect('kategori')->with(
-            'sukses',
+            'success',
             'Kategori berhasil dihapus'
         );
     }

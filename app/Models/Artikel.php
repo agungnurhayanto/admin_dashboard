@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artikel extends Model
 {
@@ -26,4 +27,9 @@ class Artikel extends Model
     {
         return Str::slug($this->artikel_slug);
     }
+
+    /* public function category()
+    {
+        return $this->belongsTo(Category::class, 'id');
+    } */
 }

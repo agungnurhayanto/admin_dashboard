@@ -1,5 +1,5 @@
 @foreach ($artikel as $a)
-    <div class="modal fade" id="delete{{ $a->id }}" tabindex="-1" aria-labelledby="modalHapusArtikel"
+    <div class="modal fade" id="delete{{ $a->id }}" tabindex="-2" aria-labelledby="modalHapusArtikel"
         aria-hidden="true">
         <div class="modal-dialog text-center">
             <div class="modal-content">
@@ -10,7 +10,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!--FORM artikel-->
+                    <!--FORM CATEGORY-->
                     <form method="get" action="{{ url('/article/hapus/' . $a->id) }}">
                         @csrf
                         {{ method_field('PUT') }}
@@ -23,7 +23,7 @@
                             aria-label="Close">Batal</button>
                         <button type="submit" class="btn btn-primary">Hapus</button>
                     </form>
-
+                    <!--END FORM TAMBAH CATEGORY-->
                 </div>
             </div>
         </div>

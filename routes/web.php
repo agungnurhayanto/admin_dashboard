@@ -32,6 +32,7 @@ Route::get('/kategori/hapus/{id}', [
     CategoryController::class,
     'kategori_hapus',
 ]);
+Route::get('/article/hapus/{id}', [ArtikelController::class, 'artikel_hapus']);
 Route::get('/kategori/edit/{id}', [CategoryController::class, 'kategori_edit']);
 Route::put('/kategori/update/{id}', [
     CategoryController::class,
@@ -44,7 +45,6 @@ Route::post('/kategori/store', [CategoryController::class, 'store'])->name(
 
 Route::get('/article', [ArtikelController::class, 'index']);
 Route::post('/article/store', [ArtikelController::class, 'store']);
-Route::get('/article/hapus/{id}', [ArtikelController::class, 'artikel_hapus']);
 
 Route::get('pages', function () {
     return view('dashboard/pages');

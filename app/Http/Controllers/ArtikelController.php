@@ -2,25 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Validator;
 use App\Models\Artikel;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Pagination\Paginator;
-use Validator;
-use Exception;
 
 class ArtikelController extends Controller
 {
     public function index()
     {
+        /*  $artikel = Artikel::join(
+            'category',
+            'artikel.artikel_kategori',
+            '=',
+            'category.id'
+        )
+            ->select('*')
+            ->orderByDesc('artikel.id')
+            ->paginate(10); */
+
+        /*  $artikel = Artikel::with([
+            'category' => function ($query) {
+                $query->select('id', 'kategori_nama');
+            },
+        ])
+            ->orderByDesc('id')
+            ->paginate(10); */
         $artikel = Artikel::latest()->paginate(5);
         $kategori = Category::all();
         return view('dashboard.article', [
             'artikel' => $artikel,
             'kategori' => $kategori,
         ]);
+    }
+
+    public function artikel_hapus($id)
+    {
+        $artikel = Artikel::find($id);
+        if ($artikel) {
+            $artikel->delete();
+            return redirect('article')->with(
+                'success',
+                'Artikel berhasil dihapus'
+            );
+        } else {
+            return redirect('article')->with(
+                'error',
+                'Artikel tidak ditemukan'
+            );
+        }
     }
 
     public function store(Request $request)
@@ -61,14 +95,5 @@ class ArtikelController extends Controller
         } catch (\Exception $e) {
             return redirect('article')->with('error', '' . $e->getMessage());
         }
-    }
-
-    public function artikel_hapus($id)
-    {
-        $artikel = Artikel::find($id)->delete();
-        return redirect('article')->with(
-            'success',
-            'Kategori berhasil dihapus'
-        );
     }
 }

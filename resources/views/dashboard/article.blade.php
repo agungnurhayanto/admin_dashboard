@@ -8,6 +8,7 @@
             </h1>
         </section>
         <section class="content">
+
             <div class="row">
                 <div class="col-lg-12">
                     <button type="button" class="btn btn-success  float-left mb-1" data-toggle="modal"
@@ -63,7 +64,7 @@
                                                             </small>
                                                         </td>
                                                         <td>{{ $a->artikel_author }}</td>
-                                                        <td>{{ $a->artikel_kategori }}</td>
+                                                        <td>{{ $a->kategori_nama }}</td>
                                                         <td><img width="100%" class="img-responsive"
                                                                 src="{{ url('') . '/gambar/artikel/' . $a->artikel_sampul }}">
                                                         </td>
@@ -75,8 +76,6 @@
                                                                 <span class='badge bg-danger'>Draft</span>
                                                             @endif
                                                         </td>
-
-
                                                         <td>
                                                             <a href="#" class="btn btn-success btn-sm"> <i
                                                                     class="fa fa-eye"></i></a>
@@ -84,12 +83,13 @@
                                                             <a href="#" class="btn btn-warning btn-sm"> <i
                                                                     class="fa fa-edit"></i>
                                                             </a>
-
                                                             <a href="#" class="btn btn-danger btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#delete{{ $k->id }}">
+                                                                data-target="#delete{{ $a->id }}">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>
+
+
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -101,17 +101,21 @@
                                             </div>
                                         @endif
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
         </section>
     </div>
     </div>
     </div>
+
+    @include('modal.artikel_modal_hapus_data')
     @include('modal.artikel_modal_tambah')
-    @include('modal.artikel_modal_hapus')
+
+
+
+
 @endsection
+
 @section('title', 'Web Company Profile')
