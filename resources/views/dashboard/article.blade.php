@@ -85,8 +85,10 @@
                                                                     class="fa fa-edit"></i>
                                                             </a>
 
-                                                            <a href="#" class="btn btn-danger btn-sm"> <i
-                                                                    class="fa fa-trash"></i>
+                                                            <a href="#" class="btn btn-danger btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#delete{{ $k->id }}">
+                                                                <i class="fa fa-trash"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -110,5 +112,6 @@
     </div>
     </div>
     @include('modal.artikel_modal_tambah')
+    @include('modal.artikel_modal_hapus')
 @endsection
 @section('title', 'Web Company Profile')

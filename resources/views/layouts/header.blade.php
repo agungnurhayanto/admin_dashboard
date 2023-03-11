@@ -38,28 +38,32 @@
             {{--   <img class="animation__shake" src="{{ asset('AdminLTE/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
                 height="60" width="60">  --}}
             <div class="spinner-grow text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
+            <br>
             <div class="spinner-grow text-secondary" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
+            <br>
             <div class="spinner-grow text-success" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
+            <br>
             <div class="spinner-grow text-danger" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
+            <br>
             <div class="spinner-grow text-warning" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
+            <br>
             <div class="spinner-grow text-info" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
-            <div class="spinner-grow text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <br>
+
             <div class="spinner-grow text-dark" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="loading-message">... loading....guys</span>
             </div>
 
         </div>

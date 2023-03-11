@@ -25,6 +25,18 @@ class ArtikelController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'artikel_judul' => 'required',
+            'artikel_kategori' => 'required',
+            'artikel_status' => 'required',
+            'artikel_konten' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('article')
+                ->withErrors($validator)
+                ->withInput();
+        }
         try {
             $form = new Artikel();
             $form->artikel_tanggal = date('Y-m-d H:i:s');
@@ -49,5 +61,14 @@ class ArtikelController extends Controller
         } catch (\Exception $e) {
             return redirect('article')->with('error', '' . $e->getMessage());
         }
+    }
+
+    public function artikel_hapus($id)
+    {
+        $artikel = Artikel::find($id)->delete();
+        return redirect('article')->with(
+            'success',
+            'Kategori berhasil dihapus'
+        );
     }
 }
