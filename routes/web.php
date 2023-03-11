@@ -28,15 +28,22 @@ Route::get('/dashboard/login', function () {
 });
 
 Route::get('/kategori', [CategoryController::class, 'index']);
-Route::get('/kategori/hapus/{id}', [CategoryController::class, 'kategori_hapus']);
+Route::get('/kategori/hapus/{id}', [
+    CategoryController::class,
+    'kategori_hapus',
+]);
 Route::get('/kategori/edit/{id}', [CategoryController::class, 'kategori_edit']);
-Route::put('/kategori/update/{id}', [CategoryController::class, 'kategori_update']);
+Route::put('/kategori/update/{id}', [
+    CategoryController::class,
+    'kategori_update',
+]);
 Route::get('/kategori/create', [CategoryController::class, 'create']);
-Route::post('/kategori/store', [CategoryController::class, 'store']);
+Route::post('/kategori/store', [CategoryController::class, 'store'])->name(
+    'kategori.store'
+);
 
 Route::get('/article', [ArtikelController::class, 'index']);
 Route::post('/article/store', [ArtikelController::class, 'store']);
-
 
 Route::get('pages', function () {
     return view('dashboard/pages');

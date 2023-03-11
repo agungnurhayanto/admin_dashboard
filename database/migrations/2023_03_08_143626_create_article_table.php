@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -16,13 +15,13 @@ return new class extends Migration
         Schema::create('artikel', function (Blueprint $table) {
             $table->id();
             $table->dateTime('artikel_tanggal');
-            $table->string('artikel_judul')->nullable();
-            $table->string('artikel_slug')->nullable();
-            $table->longText('artikel_konten')->nullable();
+            $table->string('artikel_judul');
+            $table->string('artikel_slug')->unique();
+            $table->longText('artikel_konten');
             $table->string('artikel_sampul')->nullable();
-            $table->integer('artikel_author')->nullable();
-            $table->integer('artikel_kategori')->nullable();
-            $table->enum('artikel_status', ['publish', 'draft'])->nullable();
+            $table->integer('artikel_author');
+            $table->integer('artikel_kategori');
+            $table->enum('artikel_status', ['publish', 'draft']);
             $table->timestamps();
         });
     }

@@ -9,31 +9,30 @@
             </div>
             <div class="modal-body">
                 <div class="box-body">
-                    <form action="{{ '/article/store' }}" method="post">
+                    <form action="{{ '/article/store' }}" method="post" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('POST') }}
                         <div class="form-group">
                             <label>Judul</label>
                             <input type="text" name="artikel_judul" class="form-control"
                                 placeholder="Masukkan judul artikel.." value="{{ old('artikel_judul') }}">
-                            @if ($errors->has('artikel_judul'))
+                            @error('artikel_judul')
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('artikel_judul') }}</strong>
+                                    <strong>{{ $message }}</strong>
                                 </span>
-                            @endif
+                            @enderror
                         </div>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
                         <label>Konten</label>
-
                         <br />
                         <textarea class="form-control" id="editor" name="artikel_konten">{{ old('artikel_konten') }}</textarea>
-                        @if ($errors->has('artikel_konten'))
+                        @error('artikel_konten')
                             <span class="text-danger">
-                                <strong>{{ $errors->first('artikel_konten') }}</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
-                        @endif
+                        @enderror
                     </div>
                 </div>
                 <div class="modal-body">
@@ -61,8 +60,10 @@
 
                                 </div>
                                 <br />
-                                <input type="submit" name="status" value="Draft" class="btn btn-warning btn-block">
-                                <input type="submit" name="status" value="Publish" class="btn btn-success btn-block">
+                                <input type="submit" name="artikel_status" value="Draft"
+                                    class="btn btn-warning btn-block">
+                                <input type="submit" name="artikel_status" value="Publish"
+                                    class="btn btn-success btn-block">
                             </div>
                         </div>
                     </div>

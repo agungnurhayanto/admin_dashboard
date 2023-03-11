@@ -26,29 +26,21 @@ class ArtikelController extends Controller
     public function store(Request $request)
     {
         try {
-            $validator = Validator::make($request->all(), [
-                'artikel_judul' => 'required|min:2|artikel',
-                'artikel_slug' => 'required',
-                'artikel_konten' => 'required',
-                'artikel_kategori' => 'required',
-                'artikel_status' => 'required',
-            ]);
-
-            if ($validator->fails()) {
-                return redirect('article')
-                    ->withErrors($validator)
-                    ->withInput();
+            $form = new Artikel();
+            $form->artikel_tanggal = date('Y-m-d H:i:s');
+            $form->artikel_judul = $request->artikel_judul;
+            $form->artikel_slug = Str::slug($request->input('artikel_judul'));
+            $form->artikel_konten = $request->artikel_konten;
+            if ($request->hasFile('artikel_sampul')) {
+                $file = $request->file('artikel_sampul');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('gambar/artikel'), $fileName);
+                $form->artikel_sampul = $fileName;
             }
-
-            $artikel = Artikel::create([
-                'artikel_judul' => $request->artikel_judul,
-                'artikel_slug' => Str::slug($request->input('artikel_judul')),
-                'artikel_konten' => $request->artikel_konten,
-                'artikel_sampul' => 1,
-                'artikel_author' => 1,
-                'artikel_kategori' => $request->artikel_kategori,
-                'artikel_status' => $request->artikel_status,
-            ]);
+            $form->artikel_author = 1;
+            $form->artikel_kategori = $request->artikel_kategori;
+            $form->artikel_status = $request->artikel_status;
+            $form->save();
 
             return redirect('article')->with(
                 'success',
