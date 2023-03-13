@@ -3,6 +3,7 @@
 @include('layouts.sidebar')
 @yield('dashboard')
 @yield('kategori')
+@yield('konten')
 @yield('pages')
 @yield('article')
 @yield('pengguna')

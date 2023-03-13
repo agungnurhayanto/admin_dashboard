@@ -15,23 +15,6 @@ class ArtikelController extends Controller
 {
     public function index()
     {
-        /*  $artikel = Artikel::join(
-            'category',
-            'artikel.artikel_kategori',
-            '=',
-            'category.id'
-        )
-            ->select('*')
-            ->orderByDesc('artikel.id')
-            ->paginate(10); */
-
-        /*  $artikel = Artikel::with([
-            'category' => function ($query) {
-                $query->select('id', 'kategori_nama');
-            },
-        ])
-            ->orderByDesc('id')
-            ->paginate(10); */
         $artikel = Artikel::latest()->paginate(5);
         $kategori = Category::all();
         return view('dashboard.article', [
@@ -61,7 +44,6 @@ class ArtikelController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'artikel_judul' => 'required',
-            'artikel_kategori' => 'required',
             'artikel_status' => 'required',
             'artikel_konten' => 'required',
         ]);
@@ -74,6 +56,8 @@ class ArtikelController extends Controller
         try {
             $form = new Artikel();
             $form->artikel_tanggal = date('Y-m-d H:i:s');
+            $form->category_id = $request->category;
+            $form->user_id = 1;
             $form->artikel_judul = $request->artikel_judul;
             $form->artikel_slug = Str::slug($request->input('artikel_judul'));
             $form->artikel_konten = $request->artikel_konten;
@@ -83,8 +67,6 @@ class ArtikelController extends Controller
                 $file->move(public_path('gambar/artikel'), $fileName);
                 $form->artikel_sampul = $fileName;
             }
-            $form->artikel_author = 1;
-            $form->artikel_kategori = $request->artikel_kategori;
             $form->artikel_status = $request->artikel_status;
             $form->save();
 

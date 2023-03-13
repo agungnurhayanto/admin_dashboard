@@ -63,8 +63,8 @@
                                                                 {{ url('') . '/' . $a->artikel_slug }}
                                                             </small>
                                                         </td>
-                                                        <td>{{ $a->artikel_author }}</td>
-                                                        <td>{{ $a->kategori_nama }}</td>
+                                                        <td>{{ $a->user_id }}</td>
+                                                        <td>{{ $a->category->kategori_nama }}</td>
                                                         <td><img width="100%" class="img-responsive"
                                                                 src="{{ url('') . '/gambar/artikel/' . $a->artikel_sampul }}">
                                                         </td>
@@ -80,8 +80,9 @@
                                                             <a href="#" class="btn btn-success btn-sm"> <i
                                                                     class="fa fa-eye"></i></a>
 
-                                                            <a href="#" class="btn btn-warning btn-sm"> <i
-                                                                    class="fa fa-edit"></i>
+                                                            <a href="#" class="btn btn-warning btn-sm"
+                                                                data-toggle="modal" data-target="#edit1{{ $a->id }}">
+                                                                <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="#" class="btn btn-danger btn-sm"
                                                                 data-toggle="modal"
@@ -110,10 +111,9 @@
     </div>
     </div>
 
-    @include('modal.artikel_modal_hapus_data')
+    @include('modal.artikel_modal_edit')
     @include('modal.artikel_modal_tambah')
-
-
+    @include('modal.artikel_modal_hapus')
 
 
 @endsection

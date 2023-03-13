@@ -14,6 +14,8 @@ class Artikel extends Model
     protected $fillable = [
         'id',
         'artikel_tanggal',
+        'category_id',
+        'user_id',
         'artikel_judul',
         'artikel_slug',
         'artikel_konten',
@@ -28,8 +30,8 @@ class Artikel extends Model
         return Str::slug($this->artikel_slug);
     }
 
-    /* public function category()
+    public function category()
     {
-        return $this->belongsTo(Category::class, 'id');
-    } */
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -8,10 +8,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="box-body">
-                    <form action="{{ '/article/store' }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        {{ method_field('POST') }}
+                <form action="/article/store" method="post" enctype="multipart/form-data">
+                    @csrf
+                    {{ method_field('POST') }}
+                    <div class="box-body">
                         <div class="form-group">
                             <label>Judul</label>
                             <input type="text" name="artikel_judul" class="form-control"
@@ -22,52 +22,52 @@
                                 </span>
                             @enderror
                         </div>
-                </div>
-                <div class="box-body">
-                    <div class="form-group">
-                        <label>Konten</label>
-                        <br />
-                        <textarea class="form-control" id="editor" name="artikel_konten">{{ old('artikel_konten') }}</textarea>
-                        @error('artikel_konten')
-                            <span class="text-danger">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
-                </div>
-                <div class="modal-body">
-                    <div class="box box-primary">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <select class="form-control" name="artikel_kategori">
-                                    <option value="">- Pilih Kategori</option>
-                                    @foreach ($kategori as $a)
-                                        <option {{ old('artikel_kategori') == $a->id ? 'selected' : '' }}
-                                            value="{{ $a->id }}">{{ $a->kategori_nama }}</option>
-                                    @endforeach
-                                </select>
-
-                                <br />
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Konten</label>
+                            <br />
+                            <textarea class="form-control" id="editor_tambah" name="artikel_konten">{!! old('artikel_konten') !!}</textarea>
+                            @error('artikel_konten')
+                                <span class="text-danger">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box box-primary">
+                            <div class="box-body">
                                 <div class="form-group">
-                                    <label>Gambar Sampul</label>
-                                    <input type="file" name="artikel_sampul">
-                                    @if (isset($gambar_error))
-                                        {{ $gambar_error }}
-                                    @endif
+                                    <label>Kategori</label>
+                                    <select class="form-control" name="category">
+                                        <option value="">- Pilih Kategori</option>
+                                        @foreach ($kategori as $k)
+                                            <option {{ old('category') == $k->id ? 'selected' : '' }}
+                                                value="{{ $k->id }}">{{ $k->kategori_nama }}</option>
+                                        @endforeach
+                                    </select>
 
-                                    {{ $errors->first('artikel_sampul') }}
+                                    <br />
+                                    <div class="form-group">
+                                        <label>Gambar Sampul</label>
+                                        <input type="file" name="artikel_sampul">
+                                        @if (isset($gambar_error))
+                                            {{ $gambar_error }}
+                                        @endif
 
+                                        {{ $errors->first('artikel_sampul') }}
+
+                                    </div>
+                                    <br />
+                                    <input type="submit" name="artikel_status" value="Draft"
+                                        class="btn btn-warning btn-block">
+                                    <input type="submit" name="artikel_status" value="Publish"
+                                        class="btn btn-success btn-block">
                                 </div>
-                                <br />
-                                <input type="submit" name="artikel_status" value="Draft"
-                                    class="btn btn-warning btn-block">
-                                <input type="submit" name="artikel_status" value="Publish"
-                                    class="btn btn-success btn-block">
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -75,5 +75,5 @@
 
     <script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor_tambah');
     </script>

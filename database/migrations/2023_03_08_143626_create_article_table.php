@@ -14,13 +14,13 @@ return new class extends Migration {
     {
         Schema::create('artikel', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id');
+            $table->foreignId('user_id');
             $table->dateTime('artikel_tanggal');
             $table->string('artikel_judul');
-            $table->string('artikel_slug')->unique();
+            $table->string('artikel_slug');
             $table->longText('artikel_konten');
             $table->string('artikel_sampul')->nullable();
-            $table->integer('artikel_author');
-            $table->integer('artikel_kategori');
             $table->enum('artikel_status', ['publish', 'draft']);
             $table->timestamps();
         });
