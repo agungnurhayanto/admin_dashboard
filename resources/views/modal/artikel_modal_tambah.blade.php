@@ -72,8 +72,3 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
-    <script>
-        CKEDITOR.replace('editor_tambah');
-    </script>

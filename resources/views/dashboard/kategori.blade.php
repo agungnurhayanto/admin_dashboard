@@ -83,7 +83,8 @@
     </div>
     </div>
     @include('modal.category_modal_tambah')
-    @include('modal.category_modal_edit')
     @include('modal.category_modal_hapus')
+    @include('modal.category_modal_edit')
+
 @endsection
 @section('title', 'Web Company Profile')

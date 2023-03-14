@@ -50,14 +50,13 @@
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="{{ asset('AdminLTE/dist/js/pages/dashboard.js') }}"></script>
  <script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
-
  <script>
      setTimeout(function() {
          $('.alert').fadeOut('slow');
      }, 5000);
+     CKEDITOR.replace('editor_edit');
+     CKEDITOR.replace('editor_tambah');
  </script>
-
-
  </body>
 
  </html>

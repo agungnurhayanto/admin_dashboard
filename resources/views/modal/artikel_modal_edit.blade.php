@@ -1,5 +1,5 @@
 @foreach ($artikel as $a)
-    <div class="modal fade" id="edit1{{ $a->id }}" tabindex="-1" aria-labelledby="modalEditArtikel"
+    <div class="modal fade" id="edit{{ $a->id }}" tabindex="-1" aria-labelledby="modalEditArtikel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -27,9 +27,9 @@
                         </div>
                         <div class="box-body">
                             <div class="form-group">
-                                <label>Konten</label>
+                                <label for="editor_edit">Konten</label>
                                 <br />
-                                <textarea class="form-control" id="editor" name="artikel_konten">{{ $a->artikel_konten }}</textarea>
+                                <textarea class="form-control" id="editor_edit" name="artikel_konten" required>{{ $a->artikel_konten }}</textarea>
                                 @error('artikel_konten')
                                     <span class="text-danger">
                                         <strong>{{ $message }}</strong>
@@ -75,7 +75,3 @@
         </div>
     </div>
 @endforeach
-<script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
-<script>
-    CKEDITOR.replace('editor');
-</script>

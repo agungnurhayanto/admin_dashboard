@@ -81,7 +81,7 @@
                                                                     class="fa fa-eye"></i></a>
 
                                                             <a href="#" class="btn btn-warning btn-sm"
-                                                                data-toggle="modal" data-target="#edit1{{ $a->id }}">
+                                                                data-toggle="modal" data-target="#edit{{ $a->id }}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="#" class="btn btn-danger btn-sm"
@@ -112,8 +112,9 @@
     </div>
 
     @include('modal.artikel_modal_edit')
-    @include('modal.artikel_modal_tambah')
     @include('modal.artikel_modal_hapus')
+    @include('modal.artikel_modal_tambah')
+
 
 
 @endsection
