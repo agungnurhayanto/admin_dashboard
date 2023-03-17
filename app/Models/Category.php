@@ -8,14 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-   use HasFactory;
-   protected $table = "category";
-   protected $fillable = ["id","kategori_nama","kategori_slug"];
+    use HasFactory;
+    protected $table = 'category';
+    protected $fillable = ['id', 'kategori_nama', 'kategori_slug'];
 
-   public function slug()
+    public function slug()
     {
-    return Str::slug($this->kategori_slug);
+        return Str::slug($this->kategori_slug);
     }
 }
-
-

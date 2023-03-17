@@ -78,4 +78,55 @@ class ArtikelController extends Controller
             return redirect('article')->with('error', '' . $e->getMessage());
         }
     }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'category_id' => 'required',
+            'artikel_judul' => 'required',
+            'artikel_slug' => 'required',
+            'artikel_konten' => 'required',
+            'artikel_sampul' => 'required',
+            'artikel_status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('article.edit', $id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        try {
+            $article = Article::findOrFail($id);
+            $article->artikel_tanggal = date('Y-m-d H:i:s');
+            $article->category_id = $request->category_id;
+            $article->user_id = auth()->user()->id; // Set user_id to current authenticated user's id
+            $article->artikel_judul = $request->artikel_judul;
+            $article->artikel_slug = Str::slug(
+                $request->input('artikel_judul')
+            );
+            $article->artikel_konten = $request->artikel_konten;
+            if ($request->hasFile('artikel_sampul')) {
+                $file = $request->file('artikel_sampul');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('gambar/artikel'), $fileName);
+                $article->artikel_sampul = $fileName;
+            }
+            $article->artikel_status = $request->artikel_status;
+            $article->save();
+
+            return redirect()
+                ->route('article.index')
+                ->with('success', 'Artikel berhasil diubah');
+        } catch (\Exception $e) {
+            return redirect()
+                ->route('article.edit', $id)
+                ->with(
+                    'error',
+                    'Terjadi kesalahan saat mengubah artikel: ' .
+                        $e->getMessage()
+                );
+        }
+    }
 }

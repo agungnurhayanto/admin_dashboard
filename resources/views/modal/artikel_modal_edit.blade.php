@@ -10,9 +10,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ '/article/update' }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/article/update/' . $a->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        {{ method_field('POST') }}
+                        {{ method_field('PUT') }}
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Judul</label>

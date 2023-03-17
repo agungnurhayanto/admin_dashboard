@@ -71,6 +71,7 @@ class CategoryController extends Controller
             ]);
 
             $nama_kategori = $data->kategori_nama;
+
             //update kategori
             $kategori = Category::find($id);
             $kategori->kategori_nama = $nama_kategori;

@@ -45,12 +45,9 @@ Route::post('/kategori/store', [CategoryController::class, 'store'])->name(
 
 Route::get('/article', [ArtikelController::class, 'index']);
 Route::post('/article/store', [ArtikelController::class, 'store']);
+Route::put('/article/update/{id}', [ArticleController::class, 'update']);
 Route::get('/article/hapus/{id}', [ArtikelController::class, 'artikel_hapus']);
-Route::get('/article/edit/{id}', [CategoryController::class, 'artikel_edit']);
-Route::put('/article/update/{id}', [
-    CategoryController::class,
-    'artikel_update',
-]);
+Route::get('/article/edit/{id}', [ArticleController::class, 'artikel_edit']);
 
 Route::get('pages', function () {
     return view('dashboard/pages');
