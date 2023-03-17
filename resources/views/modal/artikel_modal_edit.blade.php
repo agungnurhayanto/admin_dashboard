@@ -10,7 +10,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/article/update/' . $a->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/artikel/update/' . $a->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="box-body">

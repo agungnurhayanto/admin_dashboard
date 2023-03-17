@@ -1,5 +1,3 @@
-<?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\CategoryController;
@@ -15,10 +13,6 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-/* Route::get('/', function () {
-    return view('dashboard');
-}); */
-
 Route::get('/dashboard', function () {
     return view('dashboard_utama');
 });
@@ -27,44 +21,39 @@ Route::get('/dashboard/login', function () {
     return view('login');
 });
 
-Route::get('/kategori', [CategoryController::class, 'index']);
-Route::get('/kategori/hapus/{id}', [
-    CategoryController::class,
-    'kategori_hapus',
-]);
+Route::group(['prefix' => 'kategori'], function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('kategori.index');
+    Route::get('/hapus/{id}', [CategoryController::class, 'kategori_hapus'])->name('kategori.hapus');
+    Route::get('/edit/{id}', [CategoryController::class, 'kategori_edit'])->name('kategori.edit');
+    Route::put('/update/{id}', [CategoryController::class, 'kategori_update'])->name('kategori.update');
+    Route::get('/create', [CategoryController::class, 'create'])->name('kategori.create');
+    Route::post('/store', [CategoryController::class, 'store'])->name('kategori.store');
+});
 
-Route::get('/kategori/edit/{id}', [CategoryController::class, 'kategori_edit']);
-Route::put('/kategori/update/{id}', [
-    CategoryController::class,
-    'kategori_update',
-]);
-Route::get('/kategori/create', [CategoryController::class, 'create']);
-Route::post('/kategori/store', [CategoryController::class, 'store'])->name(
-    'kategori.store'
-);
+Route::group(['prefix' => 'article'], function () {
+    Route::get('/', [ArtikelController::class, 'index'])->name('article.index');
+    Route::post('/store', [ArtikelController::class, 'store'])->name('article.store');
+    Route::put('/update/{id}', [ArticleController::class, 'update'])->name('article.update');
+    Route::get('/hapus/{id}', [ArtikelController::class, 'artikel_hapus'])->name('article.hapus');
+    Route::get('/edit/{id}', [ArticleController::class, 'artikel_edit'])->name('article.edit');
+});
 
-Route::get('/article', [ArtikelController::class, 'index']);
-Route::post('/article/store', [ArtikelController::class, 'store']);
-Route::put('/article/update/{id}', [ArticleController::class, 'update']);
-Route::get('/article/hapus/{id}', [ArtikelController::class, 'artikel_hapus']);
-Route::get('/article/edit/{id}', [ArticleController::class, 'artikel_edit']);
-
-Route::get('pages', function () {
+Route::get('/pages', function () {
     return view('dashboard/pages');
 });
 
-Route::get('pengguna', function () {
+Route::get('/pengguna', function () {
     return view('dashboard/pengguna');
 });
 
-Route::get('pengaturan', function () {
+Route::get('/pengaturan', function () {
     return view('dashboard/pengaturan');
 });
 
-Route::get('profil', function () {
+Route::get('/profil', function () {
     return view('dashboard/profil');
 });
 
-Route::get('ganti_password', function () {
+Route::get('/ganti_password', function () {
     return view('dashboard/ganti_password');
 });
