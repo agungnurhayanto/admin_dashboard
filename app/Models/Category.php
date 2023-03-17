@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Artikel;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,5 +16,10 @@ class Category extends Model
     public function slug()
     {
         return Str::slug($this->kategori_slug);
+    }
+
+    public function artikel()
+    {
+        return $this->hasMany(Artikel::class);
     }
 }

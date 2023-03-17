@@ -5,6 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Hapus Category</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -15,8 +16,11 @@
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="form-group mb-3">
+                            <h4 class="modal-title btn btn-danger">Peringatan!!, menghapus kategori juga akan menghapus
+                                artikel kategori
+                                yang di hapus</h4>
                             <label>Nama Kategori</label>
-                            <p>{{ $k->kategori_nama }}</p>
+                            <h3>{{ $k->kategori_nama }}</h3>
 
                         </div>
                         <button type="button" class="btn btn-warning" data-dismiss="modal"

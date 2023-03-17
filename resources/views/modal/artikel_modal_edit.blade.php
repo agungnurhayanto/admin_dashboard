@@ -75,3 +75,7 @@
         </div>
     </div>
 @endforeach
+<script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('editor_edit');
+</script>

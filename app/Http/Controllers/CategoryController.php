@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Pagination\Paginator;
 use App\Models\Category;
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
@@ -22,18 +23,19 @@ class CategoryController extends Controller
     public function kategori_hapus($id)
     {
         $kategori = Category::find($id)->delete();
+        $artikel = Artikel::where('category_id', $id)->delete();
 
         return redirect('kategori')->with(
             'success',
-            'Kategori berhasil dihapus'
+            'Kategori berhasil dihapus, beserta dengan artikel yang terkait!!!'
         );
     }
 
-    /*  public function kategori_edit($id)
+    public function kategori_edit($id)
     {
         $kategori = Category::find($id);
         return view('dashboard.kategori_edit', ['kategori' => $kategori]);
-    } */
+    }
 
     public function create()
     {
