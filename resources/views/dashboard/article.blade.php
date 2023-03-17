@@ -1,4 +1,5 @@
 @extends('layouts.main')
+<!-- Content Wrapper. Contains page content -->
 @section('article')
     <div class="content-wrapper">
         <section class="content-header">
@@ -8,7 +9,6 @@
             </h1>
         </section>
         <section class="content">
-
             <div class="row">
                 <div class="col-lg-12">
                     <button type="button" class="btn btn-success  float-left mb-1" data-toggle="modal"
@@ -107,13 +107,12 @@
                         </div>
                     </div>
         </section>
+        @include('modal.artikel_modal_edit')
+        @include('modal.artikel_modal_hapus')
+        @include('modal.artikel_modal_tambah')
     </div>
     </div>
     </div>
 
-    @include('modal.artikel_modal_edit')
-    @include('modal.artikel_modal_hapus')
-    @include('modal.artikel_modal_tambah')
 @endsection
-
 @section('title', 'Web Company Profile')

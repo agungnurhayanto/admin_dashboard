@@ -49,12 +49,8 @@
  {{--   <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>  --}}
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="{{ asset('AdminLTE/dist/js/pages/dashboard.js') }}"></script>
-
  <script>
      setTimeout(function() {
          $('.alert').fadeOut('slow');
      }, 5000);
  </script>
- </body>
-
- </html>

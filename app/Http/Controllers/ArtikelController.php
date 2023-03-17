@@ -46,11 +46,16 @@ class ArtikelController extends Controller
             'artikel_judul' => 'required',
             'artikel_status' => 'required',
             'artikel_konten' => 'required',
+            'artikel_sampul' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect('article')
                 ->withErrors($validator)
+                ->with(
+                    'error',
+                    'Ada salah satu inputan yang kelewat !! Biasanya file gambar'
+                )
                 ->withInput();
         }
         try {
