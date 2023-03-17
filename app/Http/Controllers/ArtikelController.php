@@ -81,27 +81,25 @@ class ArtikelController extends Controller
 
     public function update(Request $request, $id)
     {
+        //form validasi
         $validator = Validator::make($request->all(), [
-            'category_id' => 'required',
             'artikel_judul' => 'required',
-            'artikel_slug' => 'required',
             'artikel_konten' => 'required',
-            'artikel_sampul' => 'required',
             'artikel_status' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('article.edit', $id)
-                ->withErrors($validator)
-                ->withInput();
+                ->back()
+                ->withInput()
+                ->withErrors($validator);
         }
 
         try {
-            $article = Article::findOrFail($id);
+            $article = Artikel::findOrFail($id);
             $article->artikel_tanggal = date('Y-m-d H:i:s');
-            $article->category_id = $request->category_id;
-            $article->user_id = auth()->user()->id; // Set user_id to current authenticated user's id
+            $article->category_id = $request->category;
+            $article->user_id = 1;
             $article->artikel_judul = $request->artikel_judul;
             $article->artikel_slug = Str::slug(
                 $request->input('artikel_judul')
@@ -117,16 +115,13 @@ class ArtikelController extends Controller
             $article->save();
 
             return redirect()
-                ->route('article.index')
-                ->with('success', 'Artikel berhasil diubah');
+                ->route('article.index', $id)
+                ->with('success', 'Article berhasil diubah');
         } catch (\Exception $e) {
             return redirect()
-                ->route('article.edit', $id)
-                ->with(
-                    'error',
-                    'Terjadi kesalahan saat mengubah artikel: ' .
-                        $e->getMessage()
-                );
+                ->back()
+                ->withInput()
+                ->with('error', 'Article gagal diubah: ' . $e->getMessage());
         }
     }
 }

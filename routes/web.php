@@ -1,3 +1,5 @@
+<?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\CategoryController;
@@ -22,20 +24,41 @@ Route::get('/dashboard/login', function () {
 });
 
 Route::group(['prefix' => 'kategori'], function () {
-    Route::get('/', [CategoryController::class, 'index'])->name('kategori.index');
-    Route::get('/hapus/{id}', [CategoryController::class, 'kategori_hapus'])->name('kategori.hapus');
-    Route::get('/edit/{id}', [CategoryController::class, 'kategori_edit'])->name('kategori.edit');
-    Route::put('/update/{id}', [CategoryController::class, 'kategori_update'])->name('kategori.update');
-    Route::get('/create', [CategoryController::class, 'create'])->name('kategori.create');
-    Route::post('/store', [CategoryController::class, 'store'])->name('kategori.store');
+    Route::get('/', [CategoryController::class, 'index'])->name(
+        'kategori.index'
+    );
+    Route::get('/hapus/{id}', [
+        CategoryController::class,
+        'kategori_hapus',
+    ])->name('kategori.hapus');
+    Route::get('/edit/{id}', [
+        CategoryController::class,
+        'kategori_edit',
+    ])->name('kategori.edit');
+    Route::put('/update/{id}', [
+        CategoryController::class,
+        'kategori_update',
+    ])->name('kategori.update');
+    Route::get('/create', [CategoryController::class, 'create'])->name(
+        'kategori.create'
+    );
+    Route::post('/store', [CategoryController::class, 'store'])->name(
+        'kategori.store'
+    );
 });
 
 Route::group(['prefix' => 'article'], function () {
     Route::get('/', [ArtikelController::class, 'index'])->name('article.index');
-    Route::post('/store', [ArtikelController::class, 'store'])->name('article.store');
-    Route::put('/update/{id}', [ArticleController::class, 'update'])->name('article.update');
-    Route::get('/hapus/{id}', [ArtikelController::class, 'artikel_hapus'])->name('article.hapus');
-    Route::get('/edit/{id}', [ArticleController::class, 'artikel_edit'])->name('article.edit');
+    Route::post('/store', [ArtikelController::class, 'store'])->name(
+        'article.store'
+    );
+    Route::put('/update/{id}', [ArtikelController::class, 'update'])->name(
+        'article.update'
+    );
+    Route::get('/hapus/{id}', [
+        ArtikelController::class,
+        'artikel_hapus',
+    ])->name('article.hapus');
 });
 
 Route::get('/pages', function () {

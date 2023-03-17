@@ -29,11 +29,11 @@ class CategoryController extends Controller
         );
     }
 
-    public function kategori_edit($id)
+    /*  public function kategori_edit($id)
     {
         $kategori = Category::find($id);
         return view('dashboard.kategori_edit', ['kategori' => $kategori]);
-    }
+    } */
 
     public function create()
     {
