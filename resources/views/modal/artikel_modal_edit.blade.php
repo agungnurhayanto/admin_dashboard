@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="editor_edit">Konten</label>
                                 <br />
-                                <textarea class="form-control" id="editor_edit" name="artikel_konten" required>{{ $a->artikel_konten }}</textarea>
+                                <textarea class="form-control" id="editor_edit{{ $a->id }}" name="artikel_konten" required>{{ $a->artikel_konten }}</textarea>
                                 @error('artikel_konten')
                                     <span class="text-danger">
                                         <strong>{{ $message }}</strong>
@@ -47,8 +47,7 @@
                                             @foreach ($kategori as $k)
                                                 <option value="{{ $k->id }}"
                                                     {{ $a->category_id == $k->id ? 'selected' : '' }}>
-                                                    {{ $k->kategori_nama }}
-                                                </option>
+                                                    {{ $k->kategori_nama }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -74,9 +73,8 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('editor_edit{{ $a->id }}');
+    </script>
 @endforeach
-
-<script src="{{ asset('AdminLTE/ckeditor/ckeditor.js') }}"></script>
-<script>
-    CKEDITOR.replace('editor_edit');
-</script>
