@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\CategoryController;
 
@@ -61,8 +62,8 @@ Route::group(['prefix' => 'article'], function () {
     ])->name('article.hapus');
 });
 
-Route::get('/pages', function () {
-    return view('dashboard/pages');
+Route::group(['prefix' => 'pages'], function () {
+    Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 });
 
 Route::get('/pengguna', function () {

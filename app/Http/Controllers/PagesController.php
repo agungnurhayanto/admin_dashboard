@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pages;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
@@ -14,7 +16,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Pages::latest()->paginate(5);
+        return view('dashboard.pages', ['pages' => $pages]);
     }
 
     /**
@@ -41,10 +44,10 @@ class PagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pages  $pages
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pages $pages)
+    public function show($id)
     {
         //
     }
@@ -52,10 +55,10 @@ class PagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pages  $pages
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pages $pages)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +67,10 @@ class PagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pages  $pages
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pages $pages)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +78,10 @@ class PagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pages  $pages
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pages $pages)
+    public function destroy($id)
     {
         //
     }
