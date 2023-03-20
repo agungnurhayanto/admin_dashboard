@@ -64,6 +64,15 @@ Route::group(['prefix' => 'article'], function () {
 
 Route::group(['prefix' => 'pages'], function () {
     Route::get('/', [PagesController::class, 'index'])->name('pages.index');
+    Route::post('/store', [PagesController::class, 'store'])->name(
+        'pages.store'
+    );
+    Route::get('/destroy/{id}', [PagesController::class, 'destroy'])->name(
+        'pages.destroy'
+    );
+    Route::put('/update/{id}', [PagesController::class, 'update'])->name(
+        'pages.update'
+    );
 });
 
 Route::get('/pengguna', function () {

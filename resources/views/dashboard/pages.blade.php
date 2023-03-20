@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Web Company Profile')
-
 @section('pages')
     <div class="content-wrapper">
         <section class="content-header">
@@ -55,12 +53,14 @@
                                                     <td>
                                                         <a href="#" class="btn btn-success btn-sm"> <i
                                                                 class="fa fa-eye"></i></a>
-                                                        <a href="#" class="btn btn-warning btn-sm"> <i
-                                                                class="fa fa-edit"></i>
-                                                        </a>
 
-                                                        <a href="#" class="btn btn-danger btn-sm"> <i
-                                                                class="fa fa-trash"></i>
+                                                        <a href="#" class="btn btn-warning btn-sm" data-toggle="modal"
+                                                            data-target="#edit{{ $p->id }}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                            data-target="#delete{{ $p->id }}">
+                                                            <i class="fa fa-trash"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -76,8 +76,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </section>
+        @include('modal.pages_modal_edit')
+        @include('modal.pages_modal_hapus')
+        @include('modal.pages_modal_tambah')
+
+    </div>
+    </div>
     </div>
 @endsection

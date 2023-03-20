@@ -23,7 +23,7 @@
                             aria-label="Close">Batal</button>
                         <button type="submit" class="btn btn-primary">Hapus</button>
                     </form>
-                    <!--END FORM TAMBAH CATEGORY-->
+                    <!--END FORM HAPUS ARTICLE-->
                 </div>
             </div>
         </div>
