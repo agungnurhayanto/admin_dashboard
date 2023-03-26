@@ -89,10 +89,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('#') }}" class="nav-link">
-                                <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>KELUAR</p>
-                            </a>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success mt-2"> <i
+                                        class="nav-icon fas fa-sign-out-alt"></i>Log Out</button>
                         </li>
                     </ul>
                 </li>
