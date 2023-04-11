@@ -21,6 +21,17 @@ class UsersTableSeeder extends Seeder
             'email' => 'agung.nex.edp@gmail.com',
             'email_verified_at' => now(),
             'username' => 'admin',
+            'user_level' => 'admin',
+            'user_status' => '1',
+            'password' => Hash::make('admin123'),
+        ]);
+        $user = User::create([
+            'name' => 'agung',
+            'email' => 'agung.nex8.edp@gmail.com',
+            'email_verified_at' => now(),
+            'username' => 'agung',
+            'user_level' => 'penulis',
+            'user_status' => '2',
             'password' => Hash::make('admin123'),
         ]);
     }

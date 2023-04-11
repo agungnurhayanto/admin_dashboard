@@ -80,7 +80,7 @@ class CategoryController extends Controller
             $kategori->save();
 
             return redirect('/kategori')->with(
-                'sukses',
+                'success',
                 'Kategori berhasil diubah'
             );
         } catch (\Exception $e) {

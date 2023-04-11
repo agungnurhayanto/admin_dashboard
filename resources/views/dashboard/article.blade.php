@@ -107,9 +107,10 @@
                         </div>
                     </div>
         </section>
+        @include('modal.artikel_modal_tambah')
         @include('modal.artikel_modal_edit')
         @include('modal.artikel_modal_hapus')
-        @include('modal.artikel_modal_tambah')
+
     </div>
     </div>
     </div>

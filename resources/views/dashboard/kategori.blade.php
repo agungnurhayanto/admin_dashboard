@@ -55,7 +55,7 @@
 
                                                         <td>
                                                             <a href="#" class="btn btn-warning btn-sm"
-                                                                data-toggle="modal" data-target="#edit{{ $k->id }}">
+                                                                data-toggle="modal" data-target="#edit1{{ $k->id }}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="#" class="btn btn-danger btn-sm"
@@ -82,9 +82,10 @@
     </div>
     </div>
     </div>
-    @include('modal.category_modal_tambah')
-    @include('modal.category_modal_hapus')
+
     @include('modal.category_modal_edit')
+    @include('modal.category_modal_hapus')
+    @include('modal.category_modal_tambah')
 
 @endsection
 @section('title', 'Web Company Profile')

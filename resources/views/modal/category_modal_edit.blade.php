@@ -1,5 +1,5 @@
 @foreach ($kategori as $k)
-    <div class="modal fade" id="edit{{ $k->id }}" tabindex="-1" aria-labelledby="modalEditCategory"
+    <div class="modal fade" id="edit1{{ $k->id }}" tabindex="-2" aria-labelledby="modalEditCategory"
         aria-hidden="true">
         <div class="modal-dialog text-center">
             <div class="modal-content">

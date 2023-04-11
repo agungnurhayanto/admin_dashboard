@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <!--FORM CATEGORY-->
-                <form action="{{ '/kategori/store' }}" method="post">
+                <form method="post" action="{{ '/kategori/store' }}">
                     @csrf
                     {{ method_field('POST') }}
                     <div class="form-group">
