@@ -1,12 +1,13 @@
 @extends('layouts.main')
 <!-- Content Wrapper. Contains page content -->
-@section('kategori')
+@section('container')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
                 <small>Manajemen Kategori</small>
             </h1>
         </section>
+
         <section class="content">
             <div class="row">
                 <div class="col-lg-12">
@@ -24,13 +25,11 @@
                                     @if (Session::has('success'))
                                         <div class="alert alert-success">
                                             {{ Session::get('success') }}
-
                                         </div>
                                     @endif
                                     @if (Session::has('error'))
                                         <div class="alert alert-danger">
                                             {{ Session::get('error') }}
-
                                         </div>
                                     @endif
                                     <div class="table-responsive">
@@ -55,7 +54,7 @@
 
                                                         <td>
                                                             <a href="#" class="btn btn-warning btn-sm"
-                                                                data-toggle="modal" data-target="#edit1{{ $k->id }}">
+                                                                data-toggle="modal" data-target="#edit{{ $k->id }}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="#" class="btn btn-danger btn-sm"
@@ -78,14 +77,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+            </div>
         </section>
     </div>
-    </div>
-    </div>
-
-    @include('modal.category_modal_edit')
-    @include('modal.category_modal_hapus')
-    @include('modal.category_modal_tambah')
-
 @endsection
+
 @section('title', 'Web Company Profile')

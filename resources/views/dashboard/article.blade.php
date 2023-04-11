@@ -1,6 +1,6 @@
 @extends('layouts.main')
 <!-- Content Wrapper. Contains page content -->
-@section('article')
+@section('container')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
@@ -107,9 +107,6 @@
                         </div>
                     </div>
         </section>
-        @include('modal.artikel_modal_tambah')
-        @include('modal.artikel_modal_edit')
-        @include('modal.artikel_modal_hapus')
 
     </div>
     </div>

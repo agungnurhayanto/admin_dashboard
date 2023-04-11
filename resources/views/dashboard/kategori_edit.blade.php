@@ -1,6 +1,6 @@
 @extends('layouts.main')
 <!-- Content Wrapper. Contains page content -->
-@section('kategori')
+@section('container')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>

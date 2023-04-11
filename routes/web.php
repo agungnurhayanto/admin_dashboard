@@ -19,7 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
         'dashboard.index'
     );
 
-    Route::group(['prefix' => 'kategori'], function () {
+    Route::prefix('kategori')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name(
             'kategori.index'
         );
@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
             CategoryController::class,
             'kategori_hapus',
         ])->name('kategori.hapus');
-        Route::get('/edit/{id}', [
+        Route::delete('/edit/{id}', [
             CategoryController::class,
             'kategori_edit',
         ])->name('kategori.edit');

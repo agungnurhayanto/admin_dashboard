@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Web Company Profile')
-@section('pages')
+@section('container')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
@@ -77,9 +77,10 @@
                         </div>
                     </div>
         </section>
+        @include('modal.pages_modal_tambah')
         @include('modal.pages_modal_edit')
         @include('modal.pages_modal_hapus')
-        @include('modal.pages_modal_tambah')
+
 
     </div>
     </div>

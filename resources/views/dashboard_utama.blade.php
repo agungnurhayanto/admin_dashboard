@@ -1,7 +1,6 @@
 @extends('layouts.main')
 <!-- Content Wrapper. Contains page content -->
-
-@section('dashboard')
+@section('container')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
