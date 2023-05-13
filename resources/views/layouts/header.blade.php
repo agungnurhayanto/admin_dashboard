@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -29,41 +31,3 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/summernote/summernote-bs4.min.css') }}">
 </head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            {{--   <img class="animation__shake" src="{{ asset('AdminLTE/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
-                height="60" width="60">  --}}
-            <div class="spinner-grow text-primary" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-            <div class="spinner-grow text-secondary" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-            <div class="spinner-grow text-success" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-            <div class="spinner-grow text-danger" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-            <div class="spinner-grow text-warning" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-            <div class="spinner-grow text-info" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-            <br>
-
-            <div class="spinner-grow text-dark" role="status">
-                <span class="loading-message">... loading....guys</span>
-            </div>
-
-        </div>

@@ -23,65 +23,86 @@ class ArtikelController extends Controller
         ]);
     }
 
-    public function artikel_hapus($id)
+    public function destroy($id)
     {
         $artikel = Artikel::find($id);
-        if ($artikel) {
-            $artikel->delete();
-            return redirect('article')->with(
-                'success',
-                'Artikel berhasil dihapus'
-            );
-        } else {
-            return redirect('article')->with(
-                'error',
-                'Artikel tidak ditemukan'
-            );
+        $gambar = $artikel->artikel_sampul; // ambil nama gambar dari database
+        $artikel->delete();
+
+        // hapus file gambar dari folder gambar/artikel jika ada
+        if ($gambar && file_exists(public_path('gambar/artikel/' . $gambar))) {
+            unlink(public_path('gambar/artikel/' . $gambar));
         }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Artikel berhasil dihapus!!!',
+        ]);
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'artikel_judul' => 'required',
-            'artikel_status' => 'required',
             'artikel_konten' => 'required',
+            'artikel_kategori' => 'required',
+            'artikel_status' => 'required',
             'artikel_sampul' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect('article')
-                ->withErrors($validator)
-                ->with(
-                    'error',
-                    'Ada salah satu inputan yang kelewat !! Biasanya file gambar'
-                )
-                ->withInput();
+            return response()->json([
+                'success' => false,
+                'message' =>
+                    'Gagal menyimpan data, silakan lengkapi semua isian yang diperlukan!',
+                'errors' => $validator->errors(),
+            ]);
         }
-        try {
-            $form = new Artikel();
-            $form->artikel_tanggal = date('Y-m-d H:i:s');
-            $form->category_id = $request->category;
-            $form->user_id = 1;
-            $form->artikel_judul = $request->artikel_judul;
-            $form->artikel_slug = Str::slug($request->input('artikel_judul'));
-            $form->artikel_konten = $request->artikel_konten;
-            if ($request->hasFile('artikel_sampul')) {
-                $file = $request->file('artikel_sampul');
-                $fileName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('gambar/artikel'), $fileName);
-                $form->artikel_sampul = $fileName;
-            }
-            $form->artikel_status = $request->artikel_status;
-            $form->save();
 
-            return redirect('article')->with(
-                'success',
-                'Article berhasil Di tambahkan'
-            );
-        } catch (\Exception $e) {
-            return redirect('article')->with('error', '' . $e->getMessage());
+        $artikel = new Artikel();
+        $artikel->category_id = $request->artikel_kategori;
+        $artikel->user_id = 1;
+        $artikel->artikel_tanggal = date('Y-m-d H:i:s');
+        $artikel->artikel_judul = $request->artikel_judul;
+        $artikel->artikel_slug = Str::slug($request->input('artikel_judul'));
+        $artikel->artikel_konten = $request->artikel_konten;
+        $artikel->artikel_status = $request->artikel_status;
+
+        if ($request->hasFile('artikel_sampul')) {
+            $validator = Validator::make($request->all(), [
+                'artikel_sampul' =>
+                    'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' =>
+                        'Gagal menyimpan data, file yang diupload harus berformat jpeg, png, jpg, gif, svg dan ukurannya tidak boleh melebihi 5 MB!',
+                    'errors' => $validator->errors(),
+                ]);
+            }
+
+            $file = $request->file('artikel_sampul');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('gambar/artikel'), $fileName);
+            $artikel->artikel_sampul = $fileName;
         }
+
+        $artikel->save();
+
+        if (!$artikel) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menyimpan data, terjadi kesalahan!',
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil disimpan!',
+            'data' => $artikel,
+        ]);
     }
 
     public function update(Request $request, $id)

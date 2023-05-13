@@ -2,6 +2,5 @@
 @include('layouts.navbar')
 @include('layouts.sidebar')
 @yield('container')
-@include('modal.category_modal')
-@include('modal.article_modal')
+@include('layouts.ajax-crud')
 @include('layouts.footer')
